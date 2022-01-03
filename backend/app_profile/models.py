@@ -15,6 +15,7 @@ class Profile(models.Model):
         PHONE = 'P', 'Phone'
         NONE = 'N', 'None'
 
+    deleted = models.BooleanField(default=False, editable=False)
     name = models.CharField(max_length=50)
     gender = models.CharField(max_length=10, choices=GenderChoice.choices)
     phone = models.CharField(max_length=20)
@@ -29,6 +30,21 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "Profile"
         verbose_name_plural = "Profiles"
+
+    def __str__(self):
+        return self.name
+
+    def handle_delete(self, recover=False):
+        self.deleted = False if recover else True
+        self.save()
+
+
+class ProfileTrash(Profile):
+
+    class Meta:
+        verbose_name = "Trash"
+        verbose_name_plural = "Trash"
+        proxy = True
 
     def __str__(self):
         return self.name
