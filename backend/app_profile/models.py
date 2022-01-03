@@ -21,7 +21,7 @@ class Profile(models.Model):
     email = models.EmailField(max_length=254)
     address = models.CharField(max_length=100)
     nationality = models.CharField(max_length=50)
-    dob = models.DateField()
+    dob = models.DateField(verbose_name="Date of Birth")
     educational_background = models.CharField(max_length=50)
     preffered_contact = models.CharField(
         max_length=10, choices=ContactPreference.choices, default=ContactPreference.NONE)
