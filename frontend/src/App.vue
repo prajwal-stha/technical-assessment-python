@@ -1,9 +1,12 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/create-profile">Create Profile</router-link> |
+    <a class="router-link-exact" target="_" href="http://localhost:8000/admin"
+      >Admin Panel</a
+    >
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
