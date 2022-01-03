@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Packages
-    'rest_framework'
-    'rest_framework.authtoken'
+    'rest_framework',
+    'rest_framework.authtoken',
 
     # Local
-    'backend.app_profile'
+    'backend.app_profile',
 ]
 
 MIDDLEWARE = [
