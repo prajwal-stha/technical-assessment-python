@@ -24,7 +24,7 @@ class ProfileDeleteView(View):
     def get(self, request, pk, **kwargs):
         profile = get_object_or_404(Profile, id=pk)
         profile.handle_delete()
-        return redirect(self.request.META.get('HTTP_REFERER'))
+        return redirect(request.META.get('HTTP_REFERER'))
 
 
 class ProfileDeleteRecoverView(View):
@@ -37,7 +37,7 @@ class ProfileDeleteRecoverView(View):
     def get(self, request, pk, **kwargs):
         profile = get_object_or_404(Profile, id=pk)
         profile.handle_delete(recover=True)
-        return redirect(self.request.META.get('HTTP_REFERER'))
+        return redirect(request.META.get('HTTP_REFERER'))
 
 
 class ProfileHardDeleteView(DeleteView):
