@@ -13,7 +13,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
     def delete_action(self, obj):
         return format_html(
-            '<a class="button" style="background-color:maroon; href="{}">Delete</a>',
+            '<a class="button" style="background-color:maroon;" href="{}">Delete</a>',
             reverse('delete_profile', args=[obj.pk])
         )
     delete_action.short_description = 'Delete'
@@ -30,7 +30,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
     def recover_action(self, obj):
         return format_html(
-            '<a class="button" style="background-color:green; href="{}">Recover</a>',
+            '<a class="button" style="background-color:green;" href="{}">Recover</a>',
             reverse('recover_profile', args=[obj.pk])
         )
     recover_action.short_description = 'Recover'
@@ -43,3 +43,9 @@ class ProfileAdmin(admin.ModelAdmin):
         )
     hard_delete_action.short_description = 'Delete'
     hard_delete_action.allow_tags = True
+
+    def has_add_permission(self, request) -> bool:
+        return False
+
+    def has_change_permission(self, request) -> bool:
+        return False
