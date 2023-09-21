@@ -18,23 +18,24 @@ Things to do
     9. Preferred mode of contact (select one from email, phone, none)
     10. You can be creative with the fields. The user should be allowed to select the date of birth from any standard date-picker package
     11. Add relevant front-end validation to the form
-    12. After form submission, if fields are valid, the input data should be stored in the database of your choice.
-    13. The admin user should have ability to display the records in a nice format, update, delete and undelete the record from the admin interface.
+    12. After form submission, if the fields are valid, the input data should be stored in the database of your choice.
+    13. The admin user should have the ability to display the records in a nice format and update, delete, and undelete the record from the admin interface.
 
 ### Things to consider
 
-1. As the task is pretty-easy, we will look into the coding design part of things, just making it work is not enough.
-2. Naming for methods, variables, file names, folder structures will be checked.
-3. Your git commit history will tell a story of how you thought of the solution please be mindful of it. If you use Pull request to come to your solution its even better.
+1. As the task is pretty easy, we will look into the coding design part of things, just making it work is not enough.
+2. Naming for methods, variables, file names, and folder structures will be checked.
+3. Your git commit history will tell a story of how you thought of the solution please be mindful of it. If you use Pull request to come to your solution it's even better.
 4. Code it so that the next person who continues that work will like it and not hate the code. Think maintainability of code.
-5. Tip: First break your task into logical parts then code it. (First solve the problem. Then write code. - John Johnson)
+5. Tip: First break your task into logical parts then code it. (First, solve the problem. Then write code. - John Johnson)
 6. Tip: Commented code is bad, relevant comments about code will be necessary.
 
 
 ### Rules/Requirements
 
 1. This task needs to be completed and submitted back within 7 days of receiving it, if not stated otherwise.
-2. You must use Python(Django) for backend and React/Vue.js for frontend part for solving this task. The record should be displayed in different Component than the one used for the input form. You are strictly advised to use Redux/Vuex to persist the input data (State management). You must use React Router/Vuex Router for routing.
+2. You must use Python(Django) as the backend for solving this task. The core logic of the modules should be a redistributable Pypi package and hosted as a separate private repository. 
 3. You must have a README.md file in the root, **well formatted in markdown** (like the one you are reading now) that explains your solution.
 4. Use of any extra open-source library or package is allowed.
-5. You must use git and proper git branching model and submit this task on a different branch and send us a pull request from your branch to **main** branch.
+5. You must use git and the proper git branching model to submit this task on a different branch and send us a pull request from your branch to the **main** branch.
+6. The project should have a docker-compose file and requirements.txt so that we can run the docker container to test the work you have submitted.
