@@ -5,9 +5,6 @@ repos:
           - id: trailing-whitespace
             stages: [commit]
 
-          - id: end-of-file-fixer
-            stages: [commit]
-
           - id: check-yaml
             stages: [commit]
 
@@ -15,9 +12,6 @@ repos:
             stages: [commit]
 
           - id: name-tests-test
-            stages: [commit]
-
-          - id: requirements-txt-fixer
             stages: [commit]
 
     - repo: https://github.com/psf/black
