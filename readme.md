@@ -1,6 +1,6 @@
 # User Profile
 
-Awesome user profile with roles.
+Custom User profile with django's abstract user and custom fields.
 
 ### Overview
 
@@ -8,7 +8,7 @@ Awesome user profile with roles.
 
 User Profile is a powerful and flexible toolkit for building user profiles.
 
-This Project uses a reusable app `custom-user-profile`, which consists of the core logic of our project. Full documentaion of the reusable app is [here](https://github.com/anjaan-g/custom-user-profile)
+This Project uses a reusable app `custom-user-profile`, which consists of the core logic of this project. Full documentaion of the reusable app is [here](https://github.com/anjaan-g/custom-user-profile)
 
 ### Requirements
 
@@ -17,44 +17,38 @@ This Project uses a reusable app `custom-user-profile`, which consists of the co
 
 We highly recommend and only support the latest patch release of each Python and Django series.
 
-### Installation
+## Running the Project
 
-Install using `pip`...
+Prequisite: Docker installed in the machine.
 
-```sh
-$ pip install custom-user-profile
-```
-
-`custom-user-profile` uses `django-crispy-forms` and `crispy-bootstrap5` for forms and templates rendering and should be included in the `'INSTALLED_APPS'` settings along with `'users'` app.
+1. Clone this project with `git clone https://github.com/anjaan-g/technical-assessment-python.git`
+2. This project uses environment variables for secret_key, debug, environmentso create a `.env` file inside the src directory and add the variables in following fashion.
 
 ```python
-INSTALLED_APPS = [
-    ...
-    'users',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    ...
-]
+# .env
+
+SECRET_KEY='Your_secret_key'
+ENVIRONMENT=LOCAL
+DEBUG=True
 ```
 
-### Usage in the app
+3. Open up your terminal and run `docker-compose up -d --build`. This will install required dependencies from `requirements.txt` and run the server on localhost port 8000.
+4. If for some reason, you get errors with dependencies with docker, run `docker-compose build --no-cache` this will build the docker container fresh.
+5. Go to `http://localhost:8000` and You'll see the project running.
 
-Let's take a quick example of using User-Profile to build a simple user profile.
-Starup a new project like so...
+# Demo
 
-```python
-pip install django
-pip install custom-user-profile
-django-admin startproject example .
-```
-Inside the example `urls.py`, include `users.urls` as such:
-```
-urlpatterns = [
-    path('users', include('users.urls', 'users')),
-]
-```
+Home page for unauthenticated user will look like this:
+![Home Page](assets/images/image.png)
 
-Run the runserver method with `python manage.py runserver` and goto `http:localhost:8000`
-If you are not a registered user then register with the link in the navbar.
+New User Registration Page
+![User Registration](assets/images/image-3.png)
 
-If the logged in user is admin, then he/she can list all users, view their details, edit their details, archive the users or permanently delete the users.
+Login Page:
+![Login Page](assets/images/image-1.png)
+
+Users Listing for admin users:
+![User Listing](assets/images/image-2.png)
+
+Users Detail View:
+![Alt text](assets/images/user-detail.png)
