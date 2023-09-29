@@ -16,6 +16,7 @@ class HazeSoftFormModel(TimeStampModel):
     last_name = models.CharField(max_length=100)
     gender = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
+    email = models.CharField(max_length=100, default='bhuwan@example.com')
     nationality = models.CharField(max_length=50)
     dob = models.CharField(max_length=50, verbose_name='Date of Birth')
     education = models.CharField(max_length=50, verbose_name='Education')

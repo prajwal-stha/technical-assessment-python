@@ -6,4 +6,4 @@ class HazeSoftForm(forms.ModelForm):
         model = HazeSoftFormModel
         fields = [
             'first_name', 'last_name', 
-            'gender', 'address'] 
+            'gender', 'address', 'dob', 'nationality']

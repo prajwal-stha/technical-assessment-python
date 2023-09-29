@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if messages %}
+        {{% for message in messages %}
+            <div class="alert alert-{{ message.tags}}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}}
+
+    <div class="container mt-2">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title text-center">Update Information</h1>
+            </div>
+            <div class="card-body">
+                {% if item %}
+                    <form method="post" action="{% url 'form-modify' item.id %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="first_name">First Name:</label>
+                                <input value="{{ item.first_name}}" type="text" class="form-control" id="firstname" name="first_name" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="middle_name">Middle Name:</label>
+                                <input value="{{ item.middle_name}}" type="text" class="form-control" id="middlename" name="middle_name">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="last_name">Last Name:</label>
+                                <input value="{{ item.last_name}}" type="text" class="form-control" id="lastname" name="last_name" required>
+                            </div>
+                        </div>
+                        <!-- Gender and email section -->
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="gender">Gender:</label>
+                                <select id="gender" class="form-control" name="gender" required>
+                                    <option value="male" {% if item.gender == 'male' %}selected{% endif %}>Male</option>
+                                    <option value="female" {% if item.gender == 'female' %}selected{% endif %}>Female</option>
+                                    <option value="other" {% if item.gender == 'other' %}selected{% endif %}>Other</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="email">Email:</label>
+                                <input value="{{ item.email  }}" type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input value="{{ item.address }}" type="text" class="form-control" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nationality">Nationality:</label>
+                                <input value="{{ item.nationality }}" type="text" class="form-control" id="nationality" name="nationality">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="dob">Date of Birth:</label>
+                                <input value="{{ item.dob }}" type="date" class="form-control" id="dob" name="dob" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="education">Education:</label>
+                            <input type="text" class="form-control" id="education" name="education">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="contact-mode">Mode of Contact:</label>
+                                <select id="contact-mode" class="form-control" name="mode_of_contact" required>
+                                <option value="" selected disabled>Select mode of contact</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="{% url 'form-list' %}" class="btn btn-primary ml-5">Go To List</a>
+                        </div>
+                    </form>
+                {% else %}
+                    <div class="text-center">
+                        <p class="text-center">No item found</p>
+                        <a href="{% url 'form-list' %}" class="btn btn-primary">Go To List</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

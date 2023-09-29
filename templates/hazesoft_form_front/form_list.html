@@ -1,9 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if data %}
-        <p>{{ data }}</p>
-    {% else %}
-        <p>No data found</p>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags}}">
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endif %}
+    <div class="container mt-5">
+        <div class="col-md-6">
+            <h1>Data Display</h1>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'user-logout' %}" class="btn btn-primary">Logout</a>
+            <a href="{% url 'form-view' %}" class="btn btn-primary">Add Form</a>
+        </div>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Actions</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% if data %}
+                    {% for item in data %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.first_name }}</td>
+                            <td>{{ item.middle_name }}</td>
+                            <td>{{ item.last_name }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.gender }}</td>
+                            <td>
+                                <a href="{% url 'form-modify' item.id %}" class="btn btn-primary">Modify</a>
+                                <a href="{% url 'form-delete' item.id %}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center">No data found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}
