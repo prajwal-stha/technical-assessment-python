@@ -1,27 +1,37 @@
-{% extends "hazesoft_form_front/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags}}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
     <div class="container mt-2">
         <div class="card">
             <div class="card-header">
                 <h1 class="card-title text-center">Contact Information</h1>
             </div>
             <div class="card-body">
-                <form>
+                <form method="post" action="{% url 'form-register' %}">
+                    {% csrf_token %}
                     <div class="form-row">
+                        <!-- Name section -->
                         <div class="form-group col-md-4">
-                            <label for="firstname">First Name:</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" required>
+                            <label for="first_name">First Name:</label>
+                            <input type="text" class="form-control" id="firstname" name="first_name" required>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="middlename">Middle Name:</label>
-                            <input type="text" class="form-control" id="middlename" name="middlename">
+                            <label for="middle_name">Middle Name:</label>
+                            <input type="text" class="form-control" id="middlename" name="middle_name">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="lastname">Last Name:</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" required>
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" class="form-control" id="lastname" name="last_name" required>
                         </div>
                     </div>
+                    <!-- Gender and email section -->
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="gender">Gender:</label>
@@ -38,13 +48,12 @@
                     </div>
                     <div class="form-group">
                         <label for="address">Address:</label>
-                        <!-- <textarea class="form-control" id="address" name="address" rows="1" required></textarea> -->
                         <input type="text" class="form-control" id="address" name="address" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nationality">Nationality:</label>
-                            <input type="text" class="form-control" id="nationality" name="nationality" required>
+                            <input type="text" class="form-control" id="nationality" name="nationality">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Date of Birth:</label>
@@ -53,20 +62,19 @@
                     </div>
                     <div class="form-group">
                         <label for="education">Education:</label>
-                        <input type="text" class="form-control" id="education" name="education" required>
+                        <input type="text" class="form-control" id="education" name="education">
                     </div>
                     <div class="form-group">
-                        <label for="contact-mode">Mode of Contact:</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="email-mode" name="contact-mode" value="email" required>
-                            <label class="form-check-label" for="email-mode">Email</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="phone-mode" name="contact-mode" value="phone" required>
-                            <label class="form-check-label" for="phone-mode">Phone</label>
-                        </div>
+                        <div class="form-group">
+                            <label for="contact-mode">Mode of Contact:</label>
+                            <select id="contact-mode" class="form-control" name="mode_of_contact" required>
+                              <option value="" selected disabled>Select mode of contact</option>
+                              <option value="email">Email</option>
+                              <option value="phone">Phone</option>
+                            </select>
+                          </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </div>
         </div>

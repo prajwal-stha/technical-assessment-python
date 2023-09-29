@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("user/", include('hazesoft_users.urls')),
     path("form/", include('hazesoft_form_front.urls')),
 ]

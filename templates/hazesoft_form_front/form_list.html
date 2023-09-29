@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if data %}
+        <p>{{ data }}</p>
+    {% else %}
+        <p>No data found</p>
+    {% endif %}
+{% endblock content %}

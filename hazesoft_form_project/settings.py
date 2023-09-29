@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'hazesoft_form_front.apps.HazesoftFormFrontConfig',
+    'hazesoft_users.apps.HazesoftUsersConfig',
+    'hazesoft_form_core.apps.HazesoftFormCoreConfig',
 ]
 
 MIDDLEWARE = [
