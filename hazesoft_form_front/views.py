@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
 
-
-
 from hazesoft_form_core import views as core_views
 from hazesoft_form_core import forms as core_forms
 from hazesoft_form_core.models import HazeSoftFormModel

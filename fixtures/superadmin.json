@@ -1,0 +1,18 @@
+[
+  {
+    "model": "auth.user", 
+    "pk": 1, 
+    "fields": {
+      "password": "pbkdf2_sha256$600000$iY4AU2K1JUg8V8N7NhLdxF$uSzcGWtdEAILskGRei5HYrWLL+KWikPgulXstNoLV9k=", "last_login": null, 
+      "is_superuser": true,
+      "username": "hazesoft", 
+      "first_name": "", 
+      "last_name": "", 
+      "email": "hazesoft@example.com", 
+      "is_staff": true, 
+      "is_active": true, 
+      "date_joined": "2023-09-30T16:33:04.686Z", 
+      "groups": [], 
+      "user_permissions": []}
+    }
+]

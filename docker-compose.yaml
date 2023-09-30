@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+    webb:
+        container_name: webb
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        volumes:
+            - .:/code
+        ports:
+            - 8000:8000
+
