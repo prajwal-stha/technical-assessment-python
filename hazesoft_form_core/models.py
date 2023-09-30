@@ -11,14 +11,57 @@ class TimeStampModel(models.Model):
 
 
 class HazeSoftFormModel(TimeStampModel):
-    first_name = models.CharField(max_length=100)
-    middle_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    gender = models.CharField(max_length=50)
-    address = models.CharField(max_length=50)
-    email = models.CharField(max_length=100, default='bhuwan@example.com')
-    nationality = models.CharField(max_length=50)
-    dob = models.CharField(max_length=50, verbose_name='Date of Birth')
-    education = models.CharField(max_length=50, verbose_name='Education')
-    mode_of_contact = models.CharField(max_length=50, verbose_name='Mode of Contact')
-    
+    first_name = models.CharField(
+        max_length=100,
+        verbose_name='First Name'
+        )
+    middle_name = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        default=None,
+        verbose_name='Middle Name'
+        )
+    last_name = models.CharField(
+        max_length=100,
+        verbose_name='Last Name'
+        )
+    gender = models.CharField(
+        max_length=50,
+        verbose_name='Gender'
+        )
+    address = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        default=None,
+        verbose_name='Address'
+        )
+    email = models.EmailField(
+        max_length=100, 
+        verbose_name='Email'
+        )
+    nationality = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        default=None,
+        verbose_name='Nationality'
+        )
+    dob = models.DateField(
+        verbose_name='Date of Birth'
+        )
+    education = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        default=None,
+        verbose_name='Education'
+        )
+    mode_of_contact = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        default=None,
+        verbose_name='Mode of Contact'
+        )
