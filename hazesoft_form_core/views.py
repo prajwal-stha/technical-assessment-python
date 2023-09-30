@@ -30,8 +30,12 @@ def update_form(request, instance):
             messages.warning(request, hazesoft_form.errors)
         
 def delete_form(request, item_id):
-    item = HazeSoftFormModel.objects.get(id=item_id)
-    if item:
-        item.delete()
-        return True
-    return False
+    try:
+        item = HazeSoftFormModel.objects.get(id=item_id)
+    except:
+        messages.warning(request, f"{item_id} not found. Error deleting item")
+        return False
+
+    item.delete()
+    messages.success(request, f"{item_id} deleted successfully")
+    return True

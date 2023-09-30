@@ -30,6 +30,10 @@ def get_form(request):
 
 @superuser_required
 def update_form(request, item_id):
+	if not item_id:
+		messages.warning(request, 'Item id is not provided')
+		return redirect('form-list')
+	
 	try:
 		item = HazeSoftFormModel.objects.get(id=item_id)
 	except:
@@ -39,7 +43,6 @@ def update_form(request, item_id):
 	if request.method != 'POST':
 		return render(request, 'hazesoft_form_front/edit.html', {'item': item})
 
-	# post method
 	core_views.update_form(request=request, instance=item)
 	return redirect('form-list')
 
@@ -48,10 +51,7 @@ def update_form(request, item_id):
 def remove_form(request, item_id):
 	if not item_id:
 		messages.warning(request, 'Item id is not provided')
-	try:
-		status = core_views.delete_form(request=request, item_id=item_id)
-		if status:
-			messages.success(request, f'Item with id {item_id} deleted succesfully')
-	except:
-		messages.error(request, 'Error deleting item')
+		return redirect('form-list')
+	
+	core_views.delete_form(request=request, item_id=item_id)
 	return redirect('form-list')
