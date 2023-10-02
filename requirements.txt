@@ -1,6 +1,6 @@
 asgiref==3.7.2
 Django==4.2.5
-hazesoft-form-core @ git+https://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@github.com/BhuwanKhadka/hazesoft_form_core.git
+hazesoft-form-core @ git+https://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@github.com/BhuwanKhadka/hazesoft_form_core.git
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3
