@@ -20,6 +20,7 @@ Hazesoft Form is a Django based application where one can fill form and save it.
 ## Installation
 - Clone repository from [github](https://github.com/prajwal-stha/technical-assessment-python.git)
 - Go to cloned directory where docker compose file is
+- In requirements.txt, change the token in url provided through email, token starts with ghp_ and ends before @github
 - Now build the docker compose using 
 ```bash
 docker compose up webb
