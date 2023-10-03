@@ -13,7 +13,7 @@ WORKDIR /src
 # Install dependencies
 COPY requirements.txt /src
 RUN pip install -r requirements.txt
-
+RUN python -m pip install --index-url https://test.pypi.org/simple/ --no-deps --no-build-isolation haze-uttam-users
 # Copy project
 COPY . /src/
 
