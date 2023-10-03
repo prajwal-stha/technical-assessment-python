@@ -19,6 +19,7 @@ The admin user has the ability to display the records in a nice format and updat
 Admin username: `admin`
 Admin password: `changeme`
 
+Admin login: `http://localhost:8000/admin/`
 
 ### Publishing package
 Please readthe README.rst inside packages folder for comprehensive documentation.
