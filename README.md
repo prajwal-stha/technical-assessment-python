@@ -23,3 +23,9 @@ Admin login: `http://localhost:8000/admin/`
 
 ### Publishing package
 Please readthe README.rst inside packages folder for comprehensive documentation.
+
+
+### Running services
+
+1. `docker-compose build`
+2. `docker-compose up`

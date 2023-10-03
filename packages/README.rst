@@ -28,7 +28,7 @@ Quick start
 5. Visit http://127.0.0.1:8000/users/ to register users.
 
 
-Publish
+Publish package
 ----------
 1. ``python setup.py sdist``
 2. ``python -m twine upload --repository testpypi dist/*``
