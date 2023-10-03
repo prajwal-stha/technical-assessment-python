@@ -39,3 +39,13 @@ Things to do
 4. Use of any extra open-source library or package is allowed.
 5. You must use git and the proper git branching model to submit this task on a different branch and send us a pull request from your branch to the **main** branch.
 6. The project should have a docker-compose file and requirements.txt so that we can run the docker container to test the work you have submitted.
+
+
+# Solution
+The solution to this assessment is done and documented under [readme.md](./readme.md)
+Requirements are listed [here](./requirements.txt)
+The core logic of backend implemented from here:
+
+Github: https://github.com/Anjaan-g/custom-user-profile
+
+PyPi: https://pypi.org/project/custom-user-profile/ 
