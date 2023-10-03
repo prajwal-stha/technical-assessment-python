@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ".:/src"
+    ports:
+      - 8000:8000
