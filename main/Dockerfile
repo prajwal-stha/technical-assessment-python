@@ -17,4 +17,6 @@ RUN python -m pip install --index-url https://test.pypi.org/simple/ --no-deps --
 # Copy project
 COPY . /src/
 
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 ENTRYPOINT sh -c "python manage.py runserver 0.0.0.0:8000"

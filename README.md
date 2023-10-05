@@ -29,3 +29,4 @@ Please readthe README.rst inside packages folder for comprehensive documentation
 1. `cd main`
 2. `docker-compose build`
 3. `docker-compose up`
+4. Open 'http://localhost:8000/users/create/' in the browser
