@@ -26,6 +26,6 @@ Please readthe README.rst inside packages folder for comprehensive documentation
 
 
 ### Running services
-
-1. `docker-compose build`
-2. `docker-compose up`
+1. `cd main`
+2. `docker-compose build`
+3. `docker-compose up`
